@@ -9,36 +9,38 @@ namespace BookingSystem.Business
     internal class Reservation
     {
         #region data members
-        private string _ID;
-        private string _GuestID;
-        private string _Room;
-        private string _CheckIn_date;
-        private string _CheckOut_date;
+        private string _ID; // ref number
+        private Guest guest;    //type Guest
+        private Room room;   // type Room
+        private DateTime checkIn_date;   // type Date
+        private DateTime checkOut_date;  //type Date
         private string _ReservationRef_number;
         private string _Status;
         #endregion
+
         #region properties
         public string ID { get { return _ID; } set { _ID = value; } }
-        public string GuestID { get { return _GuestID; } set { _GuestID = value; } }
-        public string Room { get { return _Room; } set { _Room = value; } }
-        public string CheckIn_date { get { return _CheckIn_date; } set { _CheckIn_date = value; } }
-        public string CheckOut_date { get { return _CheckOut_date; } set { _CheckOut_date = value; } }
+        public Guest BGuest { get { return guest; } set { guest = value; } }
+        public Room BRoom { get { return room; } set { room = value; } }
+        public DateTime CheckIn_date { get { return checkIn_date; } set { checkIn_date = value; } }
+        public DateTime CheckOut_date { get { return checkOut_date; } set { checkOut_date = value; } }
         public string ReservationRef_number { get { return _ReservationRef_number; } set { _ReservationRef_number = value; } }
         public string Status { get { return _Status; } set { _Status = value; } }
         #endregion
         #region constructor
-        public Reservation()
+
+        /*public Reservation()
         {
             ID = "";
-            GuestID = "";
-            Room = "";
-            CheckIn_date = "";
-            CheckOut_date = "";
+            guest = "";
+            room = "";
+            checkIn_date = "";
+            checkOut_date = "";
             ReservationRef_number = "";
             Status = "";
 
 
-        }
+        }*/
         #endregion 
 
 
