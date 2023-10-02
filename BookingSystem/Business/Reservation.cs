@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookingSystem.Business
 {
-    internal class Reservation
+    public class Reservation
     {
         #region data members
         private string _ID; // ref number
@@ -27,6 +27,7 @@ namespace BookingSystem.Business
         public string ReservationRef_number { get { return _ReservationRef_number; } set { _ReservationRef_number = value; } }
         public string Status { get { return _Status; } set { _Status = value; } }
         #endregion
+
         #region constructor
 
         /*public Reservation()

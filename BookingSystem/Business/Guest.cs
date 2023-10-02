@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookingSystem.Business
 {
-    internal class Guest : Person
+    public class Guest : Person
     {
         private string guestID;
 
