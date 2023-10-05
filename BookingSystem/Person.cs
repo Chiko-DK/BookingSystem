@@ -10,14 +10,16 @@ namespace BookingSystem
     {
         #region Data Members
         private string id;
-        private string name;
+        private string fName;
+        private string lName;
         private string email;
         private string phone;
         #endregion
 
         #region Properties
         public string ID { get { return id; } set { id = value; } }
-        public string Name { get { return name; } set { name = value; } }
+        public string FirstName { get { return fName; } set { fName = value; } }
+        public string LastName { get { return lName; } set { lName = value; } }
         public string Email { get { return email; } set { email = value; } }
         public string Phone { get { return phone; } set { phone = value; } }
         #endregion
@@ -26,15 +28,17 @@ namespace BookingSystem
         public Person()
         {
             id = "";
-            name = "";
+            fName = "";
+            lName = "";
             email = "";
             phone = "";
         }
 
-        public Person(string id, string name, string email, string phone)
+        public Person(string id, string fname, string lname, string email, string phone)
         {
             this.id = id;
-            this.name = name;
+            this.fName = fname;
+            this.lName = lname;
             this.email = email;
             this.phone = phone;
         }

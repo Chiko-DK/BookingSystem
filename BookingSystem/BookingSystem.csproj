@@ -50,6 +50,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,6 +67,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BookingDatabaseDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Business\BookingController.cs" />
     <Compile Include="Business\Guest.cs" />
     <Compile Include="Business\Reservation.cs" />
     <Compile Include="Business\Room.cs" />
@@ -80,6 +82,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\GuestListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GuestListForm.Designer.cs">
+      <DependentUpon>GuestListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MakeBookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MakeBookingForm.Designer.cs">
+      <DependentUpon>MakeBookingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewGuestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NewGuestForm.Designer.cs">
+      <DependentUpon>NewGuestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RoomListingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RoomListingForm.Designer.cs">
+      <DependentUpon>RoomListingForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -89,6 +115,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\GuestListForm.resx">
+      <DependentUpon>GuestListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MakeBookingForm.resx">
+      <DependentUpon>MakeBookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NewGuestForm.resx">
+      <DependentUpon>NewGuestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RoomListingForm.resx">
+      <DependentUpon>RoomListingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="BookingDatabaseDataSet1.xsc">
       <DependentUpon>BookingDatabaseDataSet1.xsd</DependentUpon>
     </None>
@@ -134,5 +172,6 @@
       <DependentUpon>BookingDatabase.mdf</DependentUpon>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

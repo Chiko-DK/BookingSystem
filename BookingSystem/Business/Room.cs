@@ -15,19 +15,18 @@ namespace BookingSystem.Business
         private bool isAvailable;
         public enum RoomType
         {
-            Single,
-            Double,
-            Twin,
-            Suite,
-            Presidential
+            Null = 0,
+            Single = 1,
+            Double = 2,
+            Twin = 3,
+            Suite = 4,
+            Presidential = 5
         }
         private RoomType roomType;
         #endregion
 
         #region Properties
-        
-        public string Room_number { get { return _Room_number; } set { _Room_number = value; } }
-
+        public string RoomNumber { get { return _Room_number; } set { _Room_number = value; } }
         public decimal Price { get { return _price; } set { _price = value; } }
         public bool IsAvailable { get { return isAvailable; } set { isAvailable = value; } }
         public RoomType getRoomType
@@ -40,29 +39,45 @@ namespace BookingSystem.Business
         #region constructor 
         public Room()
         {
-            Room_number = "";
+            RoomNumber = "";
             Price = 0;
             isAvailable = false;
         }
 
         public Room(string Room_number, decimal Price, bool isAvailable)
         {
-            this.Room_number = Room_number;
+            this.RoomNumber = Room_number;
             this.Price = Price;
             this.isAvailable = isAvailable;
         }
-        #endregion 
+        #endregion
 
-
-
-
-
-
-
-
-
-
-
+        #region Utility meethod
+        public void setRoomType(string roomType)
+        {
+            switch(roomType)
+            {
+                case "Single":
+                    this.roomType = RoomType.Single;
+                    break;
+                case "Double":
+                    this.roomType = RoomType.Double;
+                    break;
+                case "Twin":
+                    this.roomType = RoomType.Twin;
+                    break;
+                case "Suite":
+                    this.roomType = RoomType.Suite;
+                    break;
+                case "Presidential":
+                    this.roomType = RoomType.Presidential;
+                    break;
+                default:
+                    this.roomType = RoomType.Null;
+                    break;
+            }
+        }
+        #endregion
 
     }
 }

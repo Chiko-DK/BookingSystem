@@ -12,7 +12,7 @@ namespace BookingSystem.Business
 
         public string GuestID { get { return guestID; } set { guestID = value; } }
 
-        public Guest()
+        public Guest():base()
         {
             guestID = ID;
         }

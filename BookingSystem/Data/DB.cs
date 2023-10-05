@@ -14,7 +14,7 @@ namespace BookingSystem.Data
     {
         #region Data Members
         
-        private string strConn = Settings.Default.BookingDatabaseConnectionString;
+        private string strConn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\LENOVO\\source\\repos\\Chiko-DK\\BookingSystem\\BookingSystem\\BookingDatabase.mdf;Integrated Security=True;Connect Timeout=30";
         protected SqlConnection cnMain;
         protected DataSet dsMain;
         protected SqlDataAdapter daMain;
@@ -83,8 +83,9 @@ namespace BookingSystem.Data
         #endregion*/
 
         #region update source 2
-        public void UpdateDataSource(DataSet dataSet, string tableName)
+        public bool UpdateDataSource(DataSet dataSet, string tableName)
         {
+            bool success;
             try
             {
                 // Open the database connection
@@ -106,17 +107,22 @@ namespace BookingSystem.Data
 
                     // Accept the changes in the DataSet to clear the 'Modified' status
                     dataSet.Tables[tableName].AcceptChanges();
+                    
                 }
+                success = true;
             }
             catch (Exception ex)
             {
                 // Handle any exceptions that may occur during database access
                 Console.WriteLine("An error occurred: " + ex.Message);
+                success = false;
             }
-            
+            finally
+            {
+            }
+            return success;
         }
-#endregion
-
+        #endregion
 
     }
 }
