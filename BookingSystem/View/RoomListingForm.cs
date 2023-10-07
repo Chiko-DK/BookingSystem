@@ -15,17 +15,17 @@ namespace BookingSystem.View
     public partial class RoomListingForm : Form
     {
         #region Data Members
-        MakeBookingForm makeBookingForm;
+        //MakeBookingForm makeBookingForm;
         GuestListForm guestListForm;
         private Collection<Room> rooms;
         private BookingController bookCtrl;
-        private Reservation res;
-        private Room room;
+        //private Reservation res;
+        //private Room room;
         #endregion
 
         #region Property Methods
-        public Reservation getReservation { get { return res; } set { res = value; } }
-        public Room getRoom { get { return room; } set { room = value; } }
+        //public Reservation getReservation { get { return res; } set { res = value; } }
+        //public Room getRoom { get { return room; } set { room = value; } }
         #endregion
 
         #region Constructors
@@ -49,13 +49,13 @@ namespace BookingSystem.View
             rooms = null;
             roomLV.Clear();
 
-            if(getRoom.getRoomType == Room.RoomType.Null)
+            if(bookCtrl.getRoom.getRoomType == Room.RoomType.Null)
             {
                 rooms = bookCtrl.FindByAvailability(bookCtrl.AllRooms);
             }
             else
             {
-                rooms = bookCtrl.FindByTypeAvailability(bookCtrl.AllRooms, getRoom.getRoomType);
+                rooms = bookCtrl.FindByTypeAvailability(bookCtrl.AllRooms, bookCtrl.getRoom.getRoomType);
             }
 
             roomLV.Columns.Insert(0, "Room Number", 120, HorizontalAlignment.Left);
@@ -93,9 +93,9 @@ namespace BookingSystem.View
 
         private void CreateGuestListForm ()
         {
-            guestListForm = new GuestListForm();
-            guestListForm.getReservation = this.getReservation; // Or res...
-            guestListForm.getRoom = this.getRoom;
+            guestListForm = new GuestListForm(bookCtrl);
+            //guestListForm.getReservation = this.res; // Or res...
+            //guestListForm.getRoom = this.room;
             guestListForm.Show();
         }
         #endregion
@@ -118,8 +118,8 @@ namespace BookingSystem.View
             ShowAll(true);
             if (roomLV.SelectedItems.Count > 0)
             {
-                getRoom = (Room)bookCtrl.Find(getRoom, roomLV.SelectedItems[0].Text);
-                PopulateTextBox(getRoom);
+                bookCtrl.getRoom = (Room)bookCtrl.Find(bookCtrl.getRoom, roomLV.SelectedItems[0].Text);
+                PopulateTextBox(bookCtrl.getRoom);
             }
         }
 
@@ -132,7 +132,7 @@ namespace BookingSystem.View
         private void confirmBtn_Click(object sender, EventArgs e)
         {
             CreateGuestListForm();
-            this.Close();
+            //this.Close();
             //makeBookingForm.Close();
         }
         #endregion

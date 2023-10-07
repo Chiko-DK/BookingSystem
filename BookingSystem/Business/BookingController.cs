@@ -15,9 +15,16 @@ namespace BookingSystem.Business
         private Collection<Guest> guests;
         private Collection<Reservation> reservations;
         private Collection<Room> rooms;
+
+        private Guest guest;
+        private Room room;
+        private Reservation res;
         #endregion
 
-        #region Property Methods
+        #region property Methods
+        public Reservation getReservation { get { return res; } set { res = value; } }
+        public Room getRoom { get { return room; } set { room = value; } }
+        public Guest getGuest { get { return guest; } set { guest = value; } }
         public Collection<Guest> AllGuests { get { return guests; } }
         public Collection<Reservation> AllReservations { get { return reservations; } }
         public Collection<Room> AllRooms { get { return rooms; } }
@@ -30,6 +37,9 @@ namespace BookingSystem.Business
             guests = bookingDB.AllGuests;
             reservations = bookingDB.AllReservations;
             rooms = bookingDB.AllRooms;
+            room = new Room();
+            res = new Reservation();
+            guest = new Guest();
         }
         #endregion
 
@@ -93,35 +103,36 @@ namespace BookingSystem.Business
 
             if(obj is Guest)
             {
-                bool found = (guests[index].ID == id);
-                while (!(found) && (index < guests.Count - 1))
+                bool found = (guests[index].GuestID == id);
+                while (!(found) && (index < guests.Count))
                 {
                     index++;
-                    found = (guests[index].ID == id);
+                    found = (guests[index].GuestID == id);
                 }
-                return guests[index];
+                return found ? guests[index] : null;
             }
             else if (obj is Reservation)
             {
-                bool found = (reservations[index].ReferenceNumber == id);
-                while (!(found) && (index < reservations.Count - 1))
+                bool found = false;
+                while (!(found) && (index < reservations.Count))
                 {
-                    index++;
                     found = (reservations[index].ReferenceNumber == id);
+                    index++;
                 }
-                return reservations[index];
+                return found ? reservations[index] : null;
             }
             else if (obj is Room)
             {
                 bool found = (rooms[index].RoomNumber == id);
-                while (!(found) && (index < rooms.Count - 1))
+                while (!(found) && (index < rooms.Count))
                 {
                     index++;
                     found = (rooms[index].RoomNumber == id);
                 }
-                return rooms[index];
+                return found ? rooms[index] : null;
             }
             else { return null; }
+
         }
         #endregion
     }

@@ -71,7 +71,7 @@ namespace BookingSystem.View
             bookCtrl.FinalizeChanges(guest);
             ClearAll();
             MessageBox.Show("New guest has been added to the Database!");
-            //this.Close();
+            this.Close();
         }
 
         private void exitBtn_Click(object sender, EventArgs e)

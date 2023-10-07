@@ -89,7 +89,7 @@ namespace BookingSystem.Data
                         case "Reservation":
                             res = new Reservation();
                             res.ReferenceNumber = Convert.ToString(myRow["Reference Number"]).TrimEnd();
-                            res.BGuest.ID = Convert.ToString(myRow["GuestID"]).TrimEnd();
+                            res.BGuest.GuestID = Convert.ToString(myRow["GuestID"]).TrimEnd();
                             res.BRoom.RoomNumber = Convert.ToString(myRow["Room Number"]).TrimEnd();
                             res.CheckIn = Convert.ToDateTime(myRow["Check In"]);
                             res.CheckOut = Convert.ToDateTime(myRow["Check Out"]);
@@ -111,7 +111,7 @@ namespace BookingSystem.Data
             if (obj is Guest)
             {
                 guest = (Guest)obj;
-                aRow["ID"] = guest.ID;
+                aRow["ID"] = guest.GuestID;
                 aRow["First Name"] = guest.FirstName;
                 aRow["Last Name"] = guest.LastName;
                 aRow["Phone"] = guest.Phone;

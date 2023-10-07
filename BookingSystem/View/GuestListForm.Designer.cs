@@ -30,15 +30,16 @@
         {
             this.addGuestBtn = new System.Windows.Forms.Button();
             this.resbtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.searchTB = new System.Windows.Forms.TextBox();
+            this.guestLV = new System.Windows.Forms.ListView();
             this.searchLabel = new System.Windows.Forms.Label();
             this.searchBtn = new System.Windows.Forms.Button();
+            this.cancelBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addGuestBtn
             // 
-            this.addGuestBtn.Location = new System.Drawing.Point(567, 65);
+            this.addGuestBtn.Location = new System.Drawing.Point(567, 56);
             this.addGuestBtn.Name = "addGuestBtn";
             this.addGuestBtn.Size = new System.Drawing.Size(129, 38);
             this.addGuestBtn.TabIndex = 1;
@@ -48,28 +49,30 @@
             // 
             // resbtn
             // 
-            this.resbtn.Location = new System.Drawing.Point(506, 362);
+            this.resbtn.Location = new System.Drawing.Point(407, 372);
             this.resbtn.Name = "resbtn";
             this.resbtn.Size = new System.Drawing.Size(162, 33);
             this.resbtn.TabIndex = 2;
             this.resbtn.Text = "Create Reservation";
             this.resbtn.UseVisualStyleBackColor = true;
+            this.resbtn.Click += new System.EventHandler(this.resbtn_Click);
             // 
-            // textBox1
+            // searchTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(72, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 22);
-            this.textBox1.TabIndex = 3;
+            this.searchTB.Location = new System.Drawing.Point(72, 72);
+            this.searchTB.Name = "searchTB";
+            this.searchTB.Size = new System.Drawing.Size(155, 22);
+            this.searchTB.TabIndex = 3;
             // 
-            // listView1
+            // guestLV
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(45, 126);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(700, 206);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.guestLV.HideSelection = false;
+            this.guestLV.Location = new System.Drawing.Point(44, 110);
+            this.guestLV.Name = "guestLV";
+            this.guestLV.Size = new System.Drawing.Size(700, 243);
+            this.guestLV.TabIndex = 4;
+            this.guestLV.UseCompatibleStateImageBehavior = false;
+            this.guestLV.SelectedIndexChanged += new System.EventHandler(this.guestLV_SelectedIndexChanged);
             // 
             // searchLabel
             // 
@@ -82,26 +85,40 @@
             // 
             // searchBtn
             // 
-            this.searchBtn.Location = new System.Drawing.Point(246, 80);
+            this.searchBtn.Location = new System.Drawing.Point(246, 71);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(68, 23);
             this.searchBtn.TabIndex = 6;
             this.searchBtn.Text = "Search";
             this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Location = new System.Drawing.Point(614, 372);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(82, 32);
+            this.cancelBtn.TabIndex = 7;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // GuestListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.searchLabel);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.guestLV);
+            this.Controls.Add(this.searchTB);
             this.Controls.Add(this.resbtn);
             this.Controls.Add(this.addGuestBtn);
             this.Name = "GuestListForm";
             this.Text = "Guest List";
+            this.Activated += new System.EventHandler(this.GuestListForm_Activated);
+            this.Load += new System.EventHandler(this.GuestListForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,9 +127,10 @@
         #endregion
         private System.Windows.Forms.Button addGuestBtn;
         private System.Windows.Forms.Button resbtn;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.TextBox searchTB;
+        private System.Windows.Forms.ListView guestLV;
         private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.Button cancelBtn;
     }
 }

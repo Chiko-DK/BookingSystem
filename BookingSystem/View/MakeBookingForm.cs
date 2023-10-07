@@ -15,14 +15,14 @@ namespace BookingSystem.View
     {
         #region Data Members
         RoomListingForm roomListingForm;
-        private Reservation res;
-        private Room room;
+        //private Reservation res;
+        //private Room room;
         private BookingController bookCtrl;
         #endregion
 
         #region Property Methods
-        public Reservation getReservation { get { return res; } set { res = value; } }
-        public Room getRoom { get { return room; } set { room = value; } }
+        //public Reservation getReservation { get { return res; } set { res = value; } }
+        //public Room getRoom { get { return room; } set { room = value; } }
         #endregion
 
         #region Constructor
@@ -34,7 +34,7 @@ namespace BookingSystem.View
             bookCtrl = new BookingController();
         }
 
-        public MakeBookingForm(BookingController bookCtrl)
+        public MakeBookingForm(BookingController bookCtrl) //try this
         {
             InitializeComponent();
             this.bookCtrl = bookCtrl;
@@ -44,12 +44,12 @@ namespace BookingSystem.View
         #region Utility Methods
         private void PopulateObject()
         {
-            res = new Reservation();
-            res.CheckIn = checkinDTP.Value;
-            res.CheckOut = checkoutDTP.Value;
+            //bookCtrl.getReservation = new Reservation();
+            bookCtrl.getReservation.CheckIn = checkinDTP.Value;
+            bookCtrl.getReservation.CheckOut = checkoutDTP.Value;
 
-            room = new Room();
-            room.setRoomType(roomtypeCB.Text);
+            bookCtrl.getRoom = new Room();
+            bookCtrl.getRoom.setRoomType(roomtypeCB.Text);
 
 
         }
@@ -57,9 +57,9 @@ namespace BookingSystem.View
         private void CreateRoomListingForm()
         {
             PopulateObject();
-            roomListingForm = new RoomListingForm();
-            roomListingForm.getReservation = this.getReservation;
-            roomListingForm.getRoom = this.getRoom;
+            roomListingForm = new RoomListingForm(bookCtrl);
+            //roomListingForm.getReservation = this.res;
+            //roomListingForm.getRoom = this.room;
             roomListingForm.Show();
             roomListingForm.StartPosition = FormStartPosition.Manual;
         }
@@ -70,6 +70,7 @@ namespace BookingSystem.View
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+            
         }
 
         private void enterBtn_Click(object sender, EventArgs e)
