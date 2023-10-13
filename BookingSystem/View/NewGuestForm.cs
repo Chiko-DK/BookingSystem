@@ -47,7 +47,7 @@ namespace BookingSystem.View
         private void PopulateObject()
         {
             guest = new Guest();
-            guest.ID = idTB.Text;
+            guest.GuestID = idTB.Text;
             guest.FirstName = fnameTB.Text;
             guest.LastName = lnameTB.Text;
             guest.Email = emailTB.Text;
@@ -66,12 +66,20 @@ namespace BookingSystem.View
 
         private void addBtn_Click(object sender, EventArgs e)
         {
+            //bookCtrl = new BookingController();
             PopulateObject();
-            bookCtrl.DataMaintenance(guest);
-            bookCtrl.FinalizeChanges(guest);
-            ClearAll();
-            MessageBox.Show("New guest has been added to the Database!");
-            this.Close();
+            if (guest.GuestID == string.Empty)
+            {
+                MessageBox.Show("Please enter a guest ID");
+            }
+            else
+            {
+                MessageBox.Show("New guest has been added to the Database!");
+                bookCtrl.DataMaintenance(guest);
+                bookCtrl.FinalizeChanges(guest);
+                ClearAll();
+                this.Close();
+            }
         }
 
         private void exitBtn_Click(object sender, EventArgs e)

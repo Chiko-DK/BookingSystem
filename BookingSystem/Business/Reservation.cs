@@ -30,18 +30,25 @@ namespace BookingSystem.Business
 
         #region constructor
 
-        /*public Reservation()
+        public Reservation()
         {
-            ID = "";
+            /*ID = "";
             guest = "";
             room = "";
             checkIn_date = "";
             checkOut_date = "";
             ReservationRef_number = "";
-            Status = "";
+            Status = "";*/
+            guest = new Guest();
+            room = new Room();
 
+        }
 
-        }*/
+        public Reservation(Guest guest, Room room)
+        {
+            this.guest = guest;
+            this.room = room;
+        }
         #endregion 
 
 

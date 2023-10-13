@@ -20,7 +20,7 @@ namespace BookingSystem.View
         private Collection<Room> rooms;
         private BookingController bookCtrl;
         //private Reservation res;
-        //private Room room;
+        //private Room room;d
         #endregion
 
         #region Property Methods
@@ -88,7 +88,7 @@ namespace BookingSystem.View
 
         private void PopulateTextBox(Room room)
         {
-            roomDetailsTB.Text = "looks like it's working";
+            roomDetailsTB.Text = room.Description;
         }
 
         private void CreateGuestListForm ()

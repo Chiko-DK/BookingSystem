@@ -37,6 +37,9 @@ namespace BookingSystem.View
         public MakeBookingForm(BookingController bookCtrl) //try this
         {
             InitializeComponent();
+            //this.IsMdiContainer = true;
+            checkinDTP.MinDate = DateTime.Today;
+            checkoutDTP.MinDate = DateTime.Today;
             this.bookCtrl = bookCtrl;
         }
         #endregion
@@ -48,10 +51,8 @@ namespace BookingSystem.View
             bookCtrl.getReservation.CheckIn = checkinDTP.Value;
             bookCtrl.getReservation.CheckOut = checkoutDTP.Value;
 
-            bookCtrl.getRoom = new Room();
+            //bookCtrl.getRoom = new Room();
             bookCtrl.getRoom.setRoomType(roomtypeCB.Text);
-
-
         }
 
         private void CreateRoomListingForm()

@@ -42,7 +42,7 @@ namespace BookingSystem.Business
             guest = new Guest();
         }
         #endregion
-
+        
         #region Database Communication
         public void DataMaintenance(Object obj)
         {
@@ -76,7 +76,7 @@ namespace BookingSystem.Business
             Collection<Room> result = new Collection<Room>();
             foreach (Room room in r)
             {
-                if(room.getRoomType == rType && room.IsAvailable)
+                if(room.getRoomType == rType && IsRoomAvailable(room, res.CheckIn, res.CheckOut))
                 {
                     result.Add(room);
                 }
@@ -89,7 +89,7 @@ namespace BookingSystem.Business
             Collection<Room> result = new Collection<Room>();
             foreach (Room room in r)
             {
-                if (room.IsAvailable)
+                if (IsRoomAvailable(room, res.CheckIn, res.CheckOut))
                 {
                     result.Add(room);
                 }
@@ -104,7 +104,7 @@ namespace BookingSystem.Business
             if(obj is Guest)
             {
                 bool found = (guests[index].GuestID == id);
-                while (!(found) && (index < guests.Count))
+                while (!(found) && (index < guests.Count-1))
                 {
                     index++;
                     found = (guests[index].GuestID == id);
@@ -113,18 +113,19 @@ namespace BookingSystem.Business
             }
             else if (obj is Reservation)
             {
-                bool found = false;
-                while (!(found) && (index < reservations.Count))
+                
+                bool found = (reservations[index].ReferenceNumber == id);
+                while (!(found) && (index < reservations.Count-1))
                 {
-                    found = (reservations[index].ReferenceNumber == id);
                     index++;
+                    found = (reservations[index].ReferenceNumber == id);
                 }
                 return found ? reservations[index] : null;
             }
             else if (obj is Room)
             {
                 bool found = (rooms[index].RoomNumber == id);
-                while (!(found) && (index < rooms.Count))
+                while (!(found) && (index < rooms.Count - 1))
                 {
                     index++;
                     found = (rooms[index].RoomNumber == id);
@@ -132,8 +133,23 @@ namespace BookingSystem.Business
                 return found ? rooms[index] : null;
             }
             else { return null; }
+        }
 
+        private bool IsRoomAvailable(Room room, DateTime checkin, DateTime checkout)
+        {
+            foreach (Reservation res in reservations)
+            {
+                if(room.RoomNumber == res.BRoom.RoomNumber)
+                {
+                    if(checkin < res.CheckOut && checkout > res.CheckIn)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
         #endregion
+
     }
 }

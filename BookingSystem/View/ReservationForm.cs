@@ -101,10 +101,34 @@ namespace BookingSystem.View
 
         private void proceedBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("A new booing is about to be created\nPress 'Yes' to confirm");
-            bookCtrl.DataMaintenance(reservation);
-            bookCtrl.FinalizeChanges(reservation);
-            MessageBox.Show("Added!");
+            string title = "Confirmation";
+            string message = "A NEW BOOKING IS ABOUT TO BE CREATED!\nPress 'OK' to confirm.";
+            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+
+            if (result == DialogResult.OK)
+            {
+                if (cardTB.Text != string.Empty)
+                {
+                    reservation.Status = "Deposit Paid";
+                    bookCtrl.DataMaintenance(reservation);
+                    bookCtrl.FinalizeChanges(reservation);
+                    MessageBox.Show("Reservation reference number: " + reservation.ReferenceNumber 
+                        + " has been created." + "\nThe status has been set to: " + reservation.Status);
+                }
+                else
+                {
+                    bookCtrl.DataMaintenance(reservation);
+                    bookCtrl.FinalizeChanges(reservation);
+                    MessageBox.Show("Reservation reference number: " + reservation.ReferenceNumber
+                        + " has been created." + "\nThe status has been set to: " + reservation.Status);
+
+                }
+            }
+            else if(result == DialogResult.Cancel)
+            {
+                
+            }
         }
 
         private void ReservationForm_Load(object sender, EventArgs e)

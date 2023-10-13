@@ -60,9 +60,9 @@
             this.roomDetailsLabel.AutoSize = true;
             this.roomDetailsLabel.Location = new System.Drawing.Point(70, 333);
             this.roomDetailsLabel.Name = "roomDetailsLabel";
-            this.roomDetailsLabel.Size = new System.Drawing.Size(87, 16);
+            this.roomDetailsLabel.Size = new System.Drawing.Size(115, 16);
             this.roomDetailsLabel.TabIndex = 2;
-            this.roomDetailsLabel.Text = "Room details";
+            this.roomDetailsLabel.Text = "Room Description";
             // 
             // roomDetailsTB
             // 

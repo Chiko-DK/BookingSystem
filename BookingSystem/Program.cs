@@ -17,7 +17,7 @@ namespace BookingSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MakeBookingForm());
+            Application.Run(new BookingMDIParent());
         }
     }
 }
