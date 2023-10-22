@@ -17,7 +17,7 @@ namespace BookingSystem.View
         #region Data Members
         private Guest guest;
         private BookingController bookCtrl;
-
+        public bool newGuestFormClosed = false;
         #endregion
 
         #region Constructor
@@ -84,8 +84,14 @@ namespace BookingSystem.View
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
+            newGuestFormClosed = true;
             this.Close();
         }
         #endregion
+
+        private void NewGuestForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            newGuestFormClosed = true;
+        }
     }
 }

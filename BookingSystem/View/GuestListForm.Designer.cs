@@ -39,6 +39,7 @@
             // 
             // addGuestBtn
             // 
+            this.addGuestBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addGuestBtn.Location = new System.Drawing.Point(567, 56);
             this.addGuestBtn.Name = "addGuestBtn";
             this.addGuestBtn.Size = new System.Drawing.Size(129, 38);
@@ -49,6 +50,7 @@
             // 
             // resbtn
             // 
+            this.resbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resbtn.Location = new System.Drawing.Point(407, 372);
             this.resbtn.Name = "resbtn";
             this.resbtn.Size = new System.Drawing.Size(162, 33);
@@ -77,14 +79,16 @@
             // searchLabel
             // 
             this.searchLabel.AutoSize = true;
+            this.searchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchLabel.Location = new System.Drawing.Point(69, 46);
             this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(92, 16);
+            this.searchLabel.Size = new System.Drawing.Size(106, 16);
             this.searchLabel.TabIndex = 5;
             this.searchLabel.Text = "Enter Guest ID";
             // 
             // searchBtn
             // 
+            this.searchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBtn.Location = new System.Drawing.Point(246, 71);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(68, 23);
@@ -95,6 +99,7 @@
             // 
             // cancelBtn
             // 
+            this.cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.Location = new System.Drawing.Point(614, 372);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(82, 32);
@@ -118,6 +123,7 @@
             this.Name = "GuestListForm";
             this.Text = "Guest List";
             this.Activated += new System.EventHandler(this.GuestListForm_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GuestListForm_FormClosed);
             this.Load += new System.EventHandler(this.GuestListForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

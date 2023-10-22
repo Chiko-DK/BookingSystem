@@ -60,9 +60,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Elephant", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(42, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 16);
+            this.label1.Size = new System.Drawing.Size(327, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "List Of Reservations";
             // 
@@ -78,28 +79,28 @@
             // 
             // statusTB
             // 
-            this.statusTB.Location = new System.Drawing.Point(181, 728);
+            this.statusTB.Location = new System.Drawing.Point(229, 728);
             this.statusTB.Name = "statusTB";
             this.statusTB.Size = new System.Drawing.Size(150, 22);
             this.statusTB.TabIndex = 36;
             // 
             // roomNumTB
             // 
-            this.roomNumTB.Location = new System.Drawing.Point(181, 580);
+            this.roomNumTB.Location = new System.Drawing.Point(229, 580);
             this.roomNumTB.Name = "roomNumTB";
             this.roomNumTB.Size = new System.Drawing.Size(66, 22);
             this.roomNumTB.TabIndex = 32;
             // 
             // idTB
             // 
-            this.idTB.Location = new System.Drawing.Point(181, 458);
+            this.idTB.Location = new System.Drawing.Point(229, 458);
             this.idTB.Name = "idTB";
             this.idTB.Size = new System.Drawing.Size(177, 22);
             this.idTB.TabIndex = 30;
             // 
             // refTB
             // 
-            this.refTB.Location = new System.Drawing.Point(181, 421);
+            this.refTB.Location = new System.Drawing.Point(229, 421);
             this.refTB.Name = "refTB";
             this.refTB.Size = new System.Drawing.Size(224, 22);
             this.refTB.TabIndex = 29;
@@ -107,78 +108,86 @@
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
+            this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusLabel.Location = new System.Drawing.Point(40, 734);
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(44, 16);
+            this.statusLabel.Size = new System.Drawing.Size(50, 16);
             this.statusLabel.TabIndex = 28;
             this.statusLabel.Text = "Status";
             // 
             // checkoutLabel
             // 
             this.checkoutLabel.AutoSize = true;
+            this.checkoutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkoutLabel.Location = new System.Drawing.Point(40, 696);
             this.checkoutLabel.Name = "checkoutLabel";
-            this.checkoutLabel.Size = new System.Drawing.Size(100, 16);
+            this.checkoutLabel.Size = new System.Drawing.Size(114, 16);
             this.checkoutLabel.TabIndex = 27;
             this.checkoutLabel.Text = "Check Out Date";
             // 
             // checkinLabel
             // 
             this.checkinLabel.AutoSize = true;
+            this.checkinLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkinLabel.Location = new System.Drawing.Point(40, 658);
             this.checkinLabel.Name = "checkinLabel";
-            this.checkinLabel.Size = new System.Drawing.Size(90, 16);
+            this.checkinLabel.Size = new System.Drawing.Size(103, 16);
             this.checkinLabel.TabIndex = 26;
             this.checkinLabel.Text = "Check In Date";
             // 
             // roomNumLabel
             // 
             this.roomNumLabel.AutoSize = true;
+            this.roomNumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomNumLabel.Location = new System.Drawing.Point(40, 586);
             this.roomNumLabel.Name = "roomNumLabel";
-            this.roomNumLabel.Size = new System.Drawing.Size(95, 16);
+            this.roomNumLabel.Size = new System.Drawing.Size(106, 16);
             this.roomNumLabel.TabIndex = 24;
             this.roomNumLabel.Text = "Room Number";
             // 
             // idLabel
             // 
             this.idLabel.AutoSize = true;
+            this.idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idLabel.Location = new System.Drawing.Point(40, 464);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(58, 16);
+            this.idLabel.Size = new System.Drawing.Size(66, 16);
             this.idLabel.TabIndex = 22;
             this.idLabel.Text = "Guest ID";
             // 
             // refLabel
             // 
             this.refLabel.AutoSize = true;
+            this.refLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refLabel.Location = new System.Drawing.Point(40, 427);
             this.refLabel.Name = "refLabel";
-            this.refLabel.Size = new System.Drawing.Size(121, 16);
+            this.refLabel.Size = new System.Drawing.Size(137, 16);
             this.refLabel.TabIndex = 21;
             this.refLabel.Text = "Reference Number";
             // 
             // roomTypeLabel
             // 
             this.roomTypeLabel.AutoSize = true;
+            this.roomTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomTypeLabel.Location = new System.Drawing.Point(40, 622);
             this.roomTypeLabel.Name = "roomTypeLabel";
-            this.roomTypeLabel.Size = new System.Drawing.Size(79, 16);
+            this.roomTypeLabel.Size = new System.Drawing.Size(88, 16);
             this.roomTypeLabel.TabIndex = 25;
             this.roomTypeLabel.Text = "Room Type";
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameLabel.Location = new System.Drawing.Point(40, 503);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(82, 16);
+            this.nameLabel.Size = new System.Drawing.Size(92, 16);
             this.nameLabel.TabIndex = 23;
             this.nameLabel.Text = "Guest Name";
             // 
             // nameTB
             // 
-            this.nameTB.Location = new System.Drawing.Point(181, 497);
+            this.nameTB.Location = new System.Drawing.Point(229, 497);
             this.nameTB.Name = "nameTB";
             this.nameTB.Size = new System.Drawing.Size(319, 22);
             this.nameTB.TabIndex = 31;
@@ -186,21 +195,23 @@
             // phoneLabel
             // 
             this.phoneLabel.AutoSize = true;
+            this.phoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phoneLabel.Location = new System.Drawing.Point(43, 545);
             this.phoneLabel.Name = "phoneLabel";
-            this.phoneLabel.Size = new System.Drawing.Size(97, 16);
+            this.phoneLabel.Size = new System.Drawing.Size(109, 16);
             this.phoneLabel.TabIndex = 37;
             this.phoneLabel.Text = "Phone Number";
             // 
             // phoneTB
             // 
-            this.phoneTB.Location = new System.Drawing.Point(181, 539);
+            this.phoneTB.Location = new System.Drawing.Point(229, 539);
             this.phoneTB.Name = "phoneTB";
             this.phoneTB.Size = new System.Drawing.Size(177, 22);
             this.phoneTB.TabIndex = 38;
             // 
             // searchTB
             // 
+            this.searchTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchTB.Location = new System.Drawing.Point(634, 85);
             this.searchTB.Name = "searchTB";
             this.searchTB.Size = new System.Drawing.Size(177, 22);
@@ -208,6 +219,7 @@
             // 
             // searchBtn
             // 
+            this.searchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBtn.Location = new System.Drawing.Point(829, 83);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(96, 27);
@@ -219,6 +231,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(496, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 16);
@@ -227,7 +240,8 @@
             // 
             // editBtn
             // 
-            this.editBtn.Location = new System.Drawing.Point(660, 497);
+            this.editBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editBtn.Location = new System.Drawing.Point(726, 497);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(85, 40);
             this.editBtn.TabIndex = 42;
@@ -237,7 +251,8 @@
             // 
             // deleteBtn
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(660, 559);
+            this.deleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteBtn.Location = new System.Drawing.Point(726, 559);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(85, 43);
             this.deleteBtn.TabIndex = 43;
@@ -246,7 +261,8 @@
             // 
             // confirmBtn
             // 
-            this.confirmBtn.Location = new System.Drawing.Point(560, 748);
+            this.confirmBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmBtn.Location = new System.Drawing.Point(626, 748);
             this.confirmBtn.Name = "confirmBtn";
             this.confirmBtn.Size = new System.Drawing.Size(103, 36);
             this.confirmBtn.TabIndex = 44;
@@ -256,7 +272,8 @@
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(695, 748);
+            this.cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelBtn.Location = new System.Drawing.Point(761, 748);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(103, 36);
             this.cancelBtn.TabIndex = 45;
@@ -273,21 +290,21 @@
             "Twin",
             "Suite",
             "Presidential"});
-            this.roomTypeCB.Location = new System.Drawing.Point(181, 614);
+            this.roomTypeCB.Location = new System.Drawing.Point(229, 614);
             this.roomTypeCB.Name = "roomTypeCB";
             this.roomTypeCB.Size = new System.Drawing.Size(150, 24);
             this.roomTypeCB.TabIndex = 46;
             // 
             // checkinDTP
             // 
-            this.checkinDTP.Location = new System.Drawing.Point(181, 652);
+            this.checkinDTP.Location = new System.Drawing.Point(229, 652);
             this.checkinDTP.Name = "checkinDTP";
             this.checkinDTP.Size = new System.Drawing.Size(255, 22);
             this.checkinDTP.TabIndex = 47;
             // 
             // checkoutDTP
             // 
-            this.checkoutDTP.Location = new System.Drawing.Point(181, 690);
+            this.checkoutDTP.Location = new System.Drawing.Point(229, 690);
             this.checkoutDTP.Name = "checkoutDTP";
             this.checkoutDTP.Size = new System.Drawing.Size(255, 22);
             this.checkoutDTP.TabIndex = 48;
@@ -327,6 +344,7 @@
             this.Name = "BookingListForm";
             this.Text = "Booking List Form";
             this.Activated += new System.EventHandler(this.BookingListForm_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BookingListForm_FormClosed);
             this.Load += new System.EventHandler(this.BookingListForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

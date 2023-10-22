@@ -45,13 +45,14 @@ namespace BookingSystem.Data
         #endregion
 
         #region Update DataSet
+        //Create a new data adapter and fill the dataset with data from the database.
         public void FillDataSet(string aSQLstring, string aTable)
         {
             try
             {
                 daMain = new SqlDataAdapter(aSQLstring, cnMain);
                 cnMain.Open();
-                dsMain.Clear();     // May remove after
+                dsMain.Clear();
                 daMain.Fill(dsMain, aTable);
                 cnMain.Close();
             }
@@ -62,7 +63,8 @@ namespace BookingSystem.Data
         }
         #endregion
 
-        #region update source 2
+        #region Update source
+        //Updating changes made in a DataSet back to the database
         public bool UpdateDataSource(DataSet dataSet, string tableName)
         {
             bool success;
@@ -93,12 +95,12 @@ namespace BookingSystem.Data
             }
             catch (Exception ex)
             {
-                // Handle any exceptions that may occur during database access
                 Console.WriteLine("An error occurred: " + ex.Message);
                 success = false;
             }
             finally
             {
+                cnMain.Close();
             }
             return success;
         }

@@ -53,6 +53,7 @@ namespace BookingSystem.Data
             return dsMain;
         }
 
+        // Add data from the dataset to the respective collection
         private void AddToCollection(string table)
         {
             DataRow myRow = null;
@@ -102,6 +103,7 @@ namespace BookingSystem.Data
             }
         }
 
+        //Fill a row in the dataset
         private void FillRow(DataRow aRow, Object obj)
         {
             Guest guest;
@@ -140,6 +142,7 @@ namespace BookingSystem.Data
         #endregion
 
         #region Database Operations CRUD
+        //Make change in the dataset in the respective table - add edit and delite(findrow)
         public void DataSetChange(Object obj)
         {
             DataRow aRow = null;
@@ -162,6 +165,7 @@ namespace BookingSystem.Data
             dsMain.Tables[table].Rows.Add(aRow);
         }
 
+        //Build the insert parameters
         private void Build_INSERT_Parameters(Object obj)
         {
             if (obj is Guest)
@@ -226,6 +230,7 @@ namespace BookingSystem.Data
             }
         }
 
+        // Create insert commands
         private void Create_INSERT_Command(Object obj)
         {
             if (obj is Guest)
@@ -243,6 +248,7 @@ namespace BookingSystem.Data
             Build_INSERT_Parameters(obj);
         }
 
+        // Create Update parameters
         private void Build_UPDATE_Parameters(Object obj)
         {
             if (obj is Guest)
@@ -325,6 +331,7 @@ namespace BookingSystem.Data
             }
         }
 
+        //Create Update command
         private void Create_UPDATE_Command(Object obj)
         {
             if (obj is Guest)
@@ -342,6 +349,7 @@ namespace BookingSystem.Data
             Build_UPDATE_Parameters(obj);
         }
 
+        //Update the database
         public bool UpdateDataSource(Object obj)
         {
             bool success = true;

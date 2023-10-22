@@ -11,8 +11,8 @@ namespace BookingSystem.Business
 {
     public class Room
     {
+        //This class represents each room in the hotel
         #region Data Members
-        
         private string _Room_number;
         private decimal _price;
         private bool isAvailable;
@@ -29,7 +29,7 @@ namespace BookingSystem.Business
         private RoomType roomType;
         #endregion
 
-        #region Properties
+        #region Property Methods
         public string RoomNumber { get { return _Room_number; } set { _Room_number = value; } }
         public decimal Price { get { return _price; } set { _price = value; } }
         public bool IsAvailable { get { return isAvailable; } set { isAvailable = value; } }
@@ -58,6 +58,7 @@ namespace BookingSystem.Business
         #endregion
 
         #region Utility meethod
+        // Setting the RoomType and Description based on the string input.
         public void setRoomType(string roomType)
         {
             switch(roomType)
@@ -94,11 +95,10 @@ namespace BookingSystem.Business
             }
         }
 
-
+        //Room Occupancy: The number of day each room was occupied for a certain period
         public int RoomOccupancy(Collection<Reservation> reservations, DateTime startDate, DateTime endDate)
         {
             int count = 0;
-            //DateTime end = endDate;
 
             foreach (Reservation reservation in reservations)
             {

@@ -17,8 +17,7 @@ namespace BookingSystem.View
         #region Data Members
         private BookingController bookCtrl;
         private Reservation reservation;
-        //private Room room;
-        //private Guest guest;
+        public bool reservationFormClosed = false;
         #endregion
 
         #region Property Methods
@@ -99,6 +98,7 @@ namespace BookingSystem.View
         }
         #endregion
 
+        #region Form Events
         private void proceedBtn_Click(object sender, EventArgs e)
         {
             string title = "Confirmation";
@@ -122,7 +122,7 @@ namespace BookingSystem.View
                     bookCtrl.FinalizeChanges(reservation);
                     MessageBox.Show("Reservation reference number: " + reservation.ReferenceNumber
                         + " has been created." + "\nThe status has been set to: " + reservation.Status);
-
+                    
                 }
             }
             else if(result == DialogResult.Cancel)
@@ -146,7 +146,14 @@ namespace BookingSystem.View
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
+            reservationFormClosed = true;
             this.Close();
         }
+
+        private void ReservationForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            reservationFormClosed = true;
+        }
+        #endregion
     }
 }

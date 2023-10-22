@@ -47,94 +47,101 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 40);
+            this.label1.Font = new System.Drawing.Font("Elephant", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(29, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 16);
+            this.label1.Size = new System.Drawing.Size(390, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Enter New Guest Details";
             // 
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(41, 96);
+            this.idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idLabel.Location = new System.Drawing.Point(41, 108);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(58, 16);
+            this.idLabel.Size = new System.Drawing.Size(66, 16);
             this.idLabel.TabIndex = 1;
             this.idLabel.Text = "Guest ID";
             // 
             // fnameLabel
             // 
             this.fnameLabel.AutoSize = true;
-            this.fnameLabel.Location = new System.Drawing.Point(41, 149);
+            this.fnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fnameLabel.Location = new System.Drawing.Point(41, 161);
             this.fnameLabel.Name = "fnameLabel";
-            this.fnameLabel.Size = new System.Drawing.Size(72, 16);
+            this.fnameLabel.Size = new System.Drawing.Size(82, 16);
             this.fnameLabel.TabIndex = 2;
             this.fnameLabel.Text = "First Name";
             // 
             // lnameLabel
             // 
             this.lnameLabel.AutoSize = true;
-            this.lnameLabel.Location = new System.Drawing.Point(41, 201);
+            this.lnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnameLabel.Location = new System.Drawing.Point(41, 213);
             this.lnameLabel.Name = "lnameLabel";
-            this.lnameLabel.Size = new System.Drawing.Size(72, 16);
+            this.lnameLabel.Size = new System.Drawing.Size(81, 16);
             this.lnameLabel.TabIndex = 3;
             this.lnameLabel.Text = "Last Name";
             // 
             // phoneLabel
             // 
             this.phoneLabel.AutoSize = true;
-            this.phoneLabel.Location = new System.Drawing.Point(41, 252);
+            this.phoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneLabel.Location = new System.Drawing.Point(41, 264);
             this.phoneLabel.Name = "phoneLabel";
-            this.phoneLabel.Size = new System.Drawing.Size(46, 16);
+            this.phoneLabel.Size = new System.Drawing.Size(51, 16);
             this.phoneLabel.TabIndex = 4;
             this.phoneLabel.Text = "Phone";
             // 
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(41, 299);
+            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailLabel.Location = new System.Drawing.Point(41, 311);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(41, 16);
+            this.emailLabel.Size = new System.Drawing.Size(46, 16);
             this.emailLabel.TabIndex = 5;
             this.emailLabel.Text = "Email";
             // 
             // idTB
             // 
-            this.idTB.Location = new System.Drawing.Point(154, 90);
+            this.idTB.Location = new System.Drawing.Point(154, 102);
             this.idTB.Name = "idTB";
             this.idTB.Size = new System.Drawing.Size(175, 22);
             this.idTB.TabIndex = 6;
             // 
             // fnameTB
             // 
-            this.fnameTB.Location = new System.Drawing.Point(154, 143);
+            this.fnameTB.Location = new System.Drawing.Point(154, 155);
             this.fnameTB.Name = "fnameTB";
             this.fnameTB.Size = new System.Drawing.Size(239, 22);
             this.fnameTB.TabIndex = 7;
             // 
             // lnameTB
             // 
-            this.lnameTB.Location = new System.Drawing.Point(154, 195);
+            this.lnameTB.Location = new System.Drawing.Point(154, 207);
             this.lnameTB.Name = "lnameTB";
             this.lnameTB.Size = new System.Drawing.Size(239, 22);
             this.lnameTB.TabIndex = 8;
             // 
             // phoneTB
             // 
-            this.phoneTB.Location = new System.Drawing.Point(154, 246);
+            this.phoneTB.Location = new System.Drawing.Point(154, 258);
             this.phoneTB.Name = "phoneTB";
             this.phoneTB.Size = new System.Drawing.Size(175, 22);
             this.phoneTB.TabIndex = 9;
             // 
             // emailTB
             // 
-            this.emailTB.Location = new System.Drawing.Point(154, 293);
+            this.emailTB.Location = new System.Drawing.Point(154, 305);
             this.emailTB.Name = "emailTB";
             this.emailTB.Size = new System.Drawing.Size(239, 22);
             this.emailTB.TabIndex = 10;
             // 
             // addBtn
             // 
+            this.addBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBtn.Location = new System.Drawing.Point(472, 376);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(75, 23);
@@ -145,6 +152,7 @@
             // 
             // exitBtn
             // 
+            this.exitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.Location = new System.Drawing.Point(613, 376);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(75, 23);
@@ -155,6 +163,7 @@
             // 
             // clearBtn
             // 
+            this.clearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearBtn.Location = new System.Drawing.Point(44, 376);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(75, 23);
@@ -184,6 +193,7 @@
             this.Controls.Add(this.label1);
             this.Name = "NewGuestForm";
             this.Text = "NEW GUEST";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NewGuestForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -15,9 +15,8 @@ namespace BookingSystem.View
     {
         #region Data Members
         RoomListingForm roomListingForm;
-        //private Reservation res;
-        //private Room room;
         private BookingController bookCtrl;
+        public bool makeBookingFormClosed = false;
         #endregion
 
         #region Property Methods
@@ -37,9 +36,9 @@ namespace BookingSystem.View
         public MakeBookingForm(BookingController bookCtrl) //try this
         {
             InitializeComponent();
-            //this.IsMdiContainer = true;
+            this.WindowState = FormWindowState.Maximized;
             checkinDTP.MinDate = DateTime.Today;
-            checkoutDTP.MinDate = DateTime.Today;
+            checkoutDTP.MinDate = DateTime.Today.AddDays(1);
             this.bookCtrl = bookCtrl;
         }
         #endregion
@@ -59,8 +58,6 @@ namespace BookingSystem.View
         {
             PopulateObject();
             roomListingForm = new RoomListingForm(bookCtrl);
-            //roomListingForm.getReservation = this.res;
-            //roomListingForm.getRoom = this.room;
             roomListingForm.Show();
             roomListingForm.StartPosition = FormStartPosition.Manual;
         }
@@ -70,19 +67,25 @@ namespace BookingSystem.View
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            
+            makeBookingFormClosed = true;
+            this.Close();            
         }
 
         private void enterBtn_Click(object sender, EventArgs e)
         {
-            CreateRoomListingForm();
-            //this.Hide();
+            if (roomListingForm == null)
+            {
+                CreateRoomListingForm();
+            }
+            if (roomListingForm.roomListFormClosed)
+            {
+                CreateRoomListingForm();
+            }
         }
 
         private void checkinDTP_ValueChanged(object sender, EventArgs e)
         {
-            if(checkinDTP.Value > checkoutDTP.Value)
+            if(checkinDTP.Value >= checkoutDTP.Value)
             {
                 checkoutDTP.Value = checkinDTP.Value.AddDays(1);
             }
@@ -90,11 +93,20 @@ namespace BookingSystem.View
 
         private void checkoutDTP_ValueChanged(object sender, EventArgs e)
         {
-            if (checkoutDTP.Value < checkinDTP.Value)
+            if (checkoutDTP.Value <= checkinDTP.Value)
             {
                 checkoutDTP.Value = checkinDTP.Value.AddDays(1);
             }
         }
+        private void MakeBookingForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            makeBookingFormClosed = true;
+            if (roomListingForm != null && !(roomListingForm.roomListFormClosed))
+            {
+                roomListingForm.Close();
+            }
+        }
         #endregion
+
     }
 }

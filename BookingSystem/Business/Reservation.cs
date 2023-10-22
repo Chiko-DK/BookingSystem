@@ -8,12 +8,13 @@ namespace BookingSystem.Business
 {
     public class Reservation
     {
+        //This class represents each booking transaction
         #region data members
-        private string refNumber; // ref number
-        private Guest guest;    //type Guest
-        private Room room;   // type Room
-        private DateTime checkIn_date;   // type Date
-        private DateTime checkOut_date;  //type Date
+        private string refNumber; // Reference number
+        private Guest guest;    //Guest that booked
+        private Room room;   // Room booked
+        private DateTime checkIn_date;
+        private DateTime checkOut_date;
         private decimal totalPrice;
         private string _Status;
         #endregion
@@ -32,13 +33,6 @@ namespace BookingSystem.Business
 
         public Reservation()
         {
-            /*ID = "";
-            guest = "";
-            room = "";
-            checkIn_date = "";
-            checkOut_date = "";
-            ReservationRef_number = "";
-            Status = "";*/
             guest = new Guest();
             room = new Room();
 
@@ -49,12 +43,7 @@ namespace BookingSystem.Business
             this.guest = guest;
             this.room = room;
         }
-        #endregion 
-
-
-
-
-
+        #endregion
     }
 
 }

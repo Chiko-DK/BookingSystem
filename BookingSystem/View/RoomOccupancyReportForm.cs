@@ -19,6 +19,7 @@ namespace BookingSystem.View
         private Collection<Room> rooms;
         private DateTime start;
         private DateTime end;
+        public bool reportFormClosed = false;
         #endregion
 
         #region Constructors
@@ -128,7 +129,7 @@ namespace BookingSystem.View
         private void RoomOccupancyReportForm_Load(object sender, EventArgs e)
         {
             ShowAll(false);
-            startDTP.Value = DateTime.Now;
+            startDTP.Value = DateTime.Today;
             endDTP.Value = startDTP.Value.AddDays(1);
         }
 
@@ -154,6 +155,12 @@ namespace BookingSystem.View
                 endDTP.Value = startDTP.Value.AddDays(1);
             }
         }
+        private void RoomOccupancyReportForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            reportFormClosed = true;
+        }
         #endregion
+
+
     }
 }

@@ -15,20 +15,14 @@ namespace BookingSystem.View
     public partial class GuestListForm : Form
     {
         #region Data members
-        //RoomListingForm roomListingForm;
         NewGuestForm newGuestForm;
         ReservationForm reservationForm;
         private BookingController bookCtrl;
-        //private Reservation res;
-        //private Room room;
-        //private Guest guest;
         private Collection<Guest> guests;
+        public bool guestFormClosed = false;
         #endregion
 
         #region Property Methods
-        //public Reservation getReservation { get { return res; } set { res = value; } }
-        //public Room getRoom { get { return room; } set { room = value; } }
-        //public Guest getGuest { get { return guest; } set { guest = value; } }
         #endregion
 
         #region Constructors
@@ -57,6 +51,7 @@ namespace BookingSystem.View
                 bookCtrl.getGuest = (Guest)bookCtrl.Find(bookCtrl.getGuest, id);
                 if ( bookCtrl.getGuest == null)
                 {
+                    MessageBox.Show("No Guest Found!");
                     guests = bookCtrl.AllGuests;
                 }
                 else
@@ -107,18 +102,26 @@ namespace BookingSystem.View
         private void CreateReservationForm()
         {
             reservationForm = new ReservationForm(bookCtrl);
-            //reservationForm.getGuest = this.guest;
-            //reservationForm.getReservation = this.res;
-            //reservationForm.getRoom = this.room;
             reservationForm.Show();
+        }
+        private void CreateNewGuestForm()
+        {
+            newGuestForm = new NewGuestForm(bookCtrl);
+            newGuestForm.Show();
         }
         #endregion
 
         #region Form Events
         private void addGuestBtn_Click(object sender, EventArgs e)
         {
-            newGuestForm = new NewGuestForm();
-            newGuestForm.Show();
+            if(newGuestForm == null)
+            {
+                CreateNewGuestForm();
+            }
+            if (newGuestForm.newGuestFormClosed)
+            {
+                CreateNewGuestForm();
+            }
         }
 
         private void searchBtn_Click(object sender, EventArgs e)
@@ -132,6 +135,8 @@ namespace BookingSystem.View
         {
             guestLV.View = System.Windows.Forms.View.Details;
             resbtn.Visible = false;
+            SetupGuestListView(string.Empty);
+
         }
 
         private void GuestListForm_Load(object sender, EventArgs e)
@@ -151,13 +156,34 @@ namespace BookingSystem.View
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
+            guestFormClosed = true;
             this.Close();
         }
 
         private void resbtn_Click(object sender, EventArgs e)
         {
-            CreateReservationForm();
+            if (reservationForm == null)
+            {
+                CreateReservationForm();
+            }
+            if (reservationForm.reservationFormClosed)
+            {
+                CreateReservationForm();
+            }
         }
         #endregion
+
+        private void GuestListForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            guestFormClosed = true;
+            if (reservationForm != null && !(reservationForm.reservationFormClosed))
+            {
+                reservationForm.Close();
+            }
+            if (newGuestForm != null && !(newGuestForm.newGuestFormClosed))
+            {
+                newGuestForm.Close();
+            }
+        }
     }
 }

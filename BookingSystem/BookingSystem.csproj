@@ -138,6 +138,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\BookingListForm.resx">
       <DependentUpon>BookingListForm.cs</DependentUpon>
@@ -207,6 +208,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BookingDatabase.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\hotel1.jpg" />
+    <None Include="Resources\hotel.jpg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

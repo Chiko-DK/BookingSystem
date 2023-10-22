@@ -8,6 +8,7 @@ namespace BookingSystem.Business
 {
     public class Guest : Person
     {
+        //This class represents each guest of the hotel
         private string guestID;
 
         public string GuestID { get { return guestID; } set { guestID = value; } }

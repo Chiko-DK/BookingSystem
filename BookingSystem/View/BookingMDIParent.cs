@@ -24,6 +24,7 @@ namespace BookingSystem.View
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+            this.IsMdiContainer = true;
             bookCtrl = new BookingController();
         }
 
@@ -115,33 +116,88 @@ namespace BookingSystem.View
 
         #endregion
 
+        #region ToolStrip Reservation
         private void createNewBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            makeBookingForm = new MakeBookingForm(bookCtrl);
-            makeBookingForm.MdiParent = this;
-            makeBookingForm.StartPosition = FormStartPosition.CenterParent;
+            if (makeBookingForm == null)
+            {
+                CreateMakeBookingForm();
+            }
+            if (makeBookingForm.makeBookingFormClosed)
+            {
+                CreateMakeBookingForm();
+            }
             makeBookingForm.Show();
         }
 
         private void adToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            newGuestForm = new NewGuestForm();
-            newGuestForm.MdiParent = this;
+            if (newGuestForm == null)
+            {
+                CreateNewGuestForm();
+            }
+            if (newGuestForm.newGuestFormClosed)
+            {
+                CreateNewGuestForm();
+            }
             newGuestForm.Show();
         }
 
         private void changeBookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bookingListForm = new BookingListForm();
-            bookingListForm.MdiParent = this;
+            if (bookingListForm == null)
+            {
+                CreateBookingListForm();
+            }
+            if (bookingListForm.bookingListFormClosed)
+            {
+                CreateBookingListForm();
+            }
             bookingListForm.Show();
         }
 
         private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            roomOccupancyReportForm = new RoomOccupancyReportForm();
-            roomOccupancyReportForm.MdiParent = this;
+            if (roomOccupancyReportForm == null)
+            {
+                CreateReportForm();
+            }
+            if (roomOccupancyReportForm.reportFormClosed)
+            {
+                CreateReportForm();
+            }
             roomOccupancyReportForm.Show();
         }
+        #endregion
+
+        #region Create a New ChildForm
+        private void CreateMakeBookingForm()
+        {
+            makeBookingForm = new MakeBookingForm(bookCtrl);
+            makeBookingForm.MdiParent = this;
+            makeBookingForm.StartPosition = FormStartPosition.CenterParent;
+        }
+
+        private void CreateNewGuestForm()
+        {
+            newGuestForm = new NewGuestForm(bookCtrl);
+            newGuestForm.MdiParent = this;
+            newGuestForm.StartPosition = FormStartPosition.CenterParent;
+        }
+
+        private void CreateBookingListForm()
+        {
+            bookingListForm = new BookingListForm();
+            bookingListForm.MdiParent = this;
+            bookingListForm.StartPosition = FormStartPosition.CenterParent;
+        }
+
+        private void CreateReportForm()
+        {
+            roomOccupancyReportForm = new RoomOccupancyReportForm();
+            roomOccupancyReportForm.MdiParent = this;
+            roomOccupancyReportForm.StartPosition = FormStartPosition.CenterParent;
+        }
+        #endregion
     }
 }

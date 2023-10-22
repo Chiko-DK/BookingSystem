@@ -15,12 +15,10 @@ namespace BookingSystem.View
     public partial class RoomListingForm : Form
     {
         #region Data Members
-        //MakeBookingForm makeBookingForm;
         GuestListForm guestListForm;
         private Collection<Room> rooms;
         private BookingController bookCtrl;
-        //private Reservation res;
-        //private Room room;d
+        public bool roomListFormClosed = false;
         #endregion
 
         #region Property Methods
@@ -94,8 +92,6 @@ namespace BookingSystem.View
         private void CreateGuestListForm ()
         {
             guestListForm = new GuestListForm(bookCtrl);
-            //guestListForm.getReservation = this.res; // Or res...
-            //guestListForm.getRoom = this.room;
             guestListForm.Show();
         }
         #endregion
@@ -125,16 +121,31 @@ namespace BookingSystem.View
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
+            roomListFormClosed = true;
             this.Close();
             //makeBookingForm.Show();
         }
 
         private void confirmBtn_Click(object sender, EventArgs e)
         {
-            CreateGuestListForm();
-            //this.Close();
-            //makeBookingForm.Close();
+            if (guestListForm == null)
+            {
+                CreateGuestListForm();
+            }
+            if (guestListForm.guestFormClosed)
+            {
+                CreateGuestListForm();
+            }
         }
         #endregion
+
+        private void RoomListingForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            roomListFormClosed = true;
+            if(guestListForm!= null && !(guestListForm.guestFormClosed))
+            {
+                guestListForm.Close();
+            }
+        }
     }
 }

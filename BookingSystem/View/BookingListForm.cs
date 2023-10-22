@@ -14,9 +14,12 @@ namespace BookingSystem.View
 {
     public partial class BookingListForm : Form
     {
+        #region Data Members
         private BookingController bookCtrl;
         private Collection<Reservation> reservations;
         private Reservation res;
+        public bool bookingListFormClosed = false;
+        #endregion
 
         #region Constructors
         public BookingListForm()
@@ -42,8 +45,9 @@ namespace BookingSystem.View
             if (id != string.Empty)
             {
                 bookCtrl.getReservation = (Reservation)bookCtrl.Find(bookCtrl.getReservation, id);
-                if (bookCtrl.getGuest == null)
+                if (bookCtrl.getReservation == null)
                 {
+                    MessageBox.Show("No Reservation Found!");
                     reservations = bookCtrl.AllReservations;
                 }
                 else
@@ -154,6 +158,7 @@ namespace BookingSystem.View
         }
         #endregion
 
+        #region Form Events
         private void BookingListForm_Load(object sender, EventArgs e)
         {
             bookingLV.View = System.Windows.Forms.View.Details;
@@ -192,6 +197,7 @@ namespace BookingSystem.View
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
+            bookingListFormClosed = true;
             this.Close();
         }
 
@@ -199,5 +205,11 @@ namespace BookingSystem.View
         {
             this.Close(); //didn't finish :(
         }
+
+        private void BookingListForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            bookingListFormClosed = true;
+        }
+        #endregion
     }
 }

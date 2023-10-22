@@ -42,36 +42,40 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Elephant", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(43, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 16);
+            this.label1.Size = new System.Drawing.Size(325, 35);
             this.label1.TabIndex = 0;
             this.label1.Text = "Enter booking details";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(46, 101);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(46, 117);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 16);
+            this.label2.Size = new System.Drawing.Size(89, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Arrival Date";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 150);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(46, 166);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 16);
+            this.label3.Size = new System.Drawing.Size(113, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Departure Date";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 213);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(46, 229);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 16);
+            this.label4.Size = new System.Drawing.Size(88, 16);
             this.label4.TabIndex = 3;
             this.label4.Text = "Room Type";
             // 
@@ -85,7 +89,7 @@
             "Twin",
             "Suite",
             "Presidential"});
-            this.roomtypeCB.Location = new System.Drawing.Point(197, 205);
+            this.roomtypeCB.Location = new System.Drawing.Point(197, 221);
             this.roomtypeCB.Name = "roomtypeCB";
             this.roomtypeCB.Size = new System.Drawing.Size(170, 24);
             this.roomtypeCB.TabIndex = 4;
@@ -93,7 +97,7 @@
             // 
             // checkoutDTP
             // 
-            this.checkoutDTP.Location = new System.Drawing.Point(197, 144);
+            this.checkoutDTP.Location = new System.Drawing.Point(197, 160);
             this.checkoutDTP.Name = "checkoutDTP";
             this.checkoutDTP.Size = new System.Drawing.Size(250, 22);
             this.checkoutDTP.TabIndex = 5;
@@ -101,7 +105,7 @@
             // 
             // checkinDTP
             // 
-            this.checkinDTP.Location = new System.Drawing.Point(197, 101);
+            this.checkinDTP.Location = new System.Drawing.Point(197, 117);
             this.checkinDTP.Name = "checkinDTP";
             this.checkinDTP.Size = new System.Drawing.Size(250, 22);
             this.checkinDTP.TabIndex = 6;
@@ -110,7 +114,7 @@
             // 
             // enterBtn
             // 
-            this.enterBtn.Location = new System.Drawing.Point(452, 289);
+            this.enterBtn.Location = new System.Drawing.Point(452, 302);
             this.enterBtn.Name = "enterBtn";
             this.enterBtn.Size = new System.Drawing.Size(107, 32);
             this.enterBtn.TabIndex = 7;
@@ -120,7 +124,7 @@
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(617, 289);
+            this.exitBtn.Location = new System.Drawing.Point(617, 302);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(87, 32);
             this.exitBtn.TabIndex = 8;
@@ -132,6 +136,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.enterBtn);
@@ -144,6 +150,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MakeBookingForm";
             this.Text = "Make A Booking";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MakeBookingForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
