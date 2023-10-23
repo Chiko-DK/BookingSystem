@@ -1,4 +1,5 @@
 ﻿using BookingSystem.Business;
+using BookingSystem.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -75,7 +76,7 @@ namespace BookingSystem.View
             else
             {
                 MessageBox.Show("New guest has been added to the Database!");
-                bookCtrl.DataMaintenance(guest);
+                bookCtrl.DataMaintenance(guest, DB.DBOperation.Add);
                 bookCtrl.FinalizeChanges(guest);
                 ClearAll();
                 this.Close();

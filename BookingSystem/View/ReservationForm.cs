@@ -74,8 +74,8 @@ namespace BookingSystem.View
                 res = (Reservation)bookCtrl.Find(reservation, refNum);
             }
             reservation.ReferenceNumber = refNum;
-            reservation.BGuest = bookCtrl.getGuest;
             reservation.BRoom = bookCtrl.getRoom;
+            reservation.BGuest = bookCtrl.getGuest;
             reservation.CheckIn = bookCtrl.getReservation.CheckIn;
             reservation.CheckOut = bookCtrl.getReservation.CheckOut;
             TimeSpan difference = reservation.CheckOut - reservation.CheckIn;
@@ -111,14 +111,14 @@ namespace BookingSystem.View
                 if (cardTB.Text != string.Empty)
                 {
                     reservation.Status = "Deposit Paid";
-                    bookCtrl.DataMaintenance(reservation);
+                    bookCtrl.DataMaintenance(reservation, Data.DB.DBOperation.Add);
                     bookCtrl.FinalizeChanges(reservation);
                     MessageBox.Show("Reservation reference number: " + reservation.ReferenceNumber 
                         + " has been created." + "\nThe status has been set to: " + reservation.Status);
                 }
                 else
                 {
-                    bookCtrl.DataMaintenance(reservation);
+                    bookCtrl.DataMaintenance(reservation, Data.DB.DBOperation.Add);
                     bookCtrl.FinalizeChanges(reservation);
                     MessageBox.Show("Reservation reference number: " + reservation.ReferenceNumber
                         + " has been created." + "\nThe status has been set to: " + reservation.Status);

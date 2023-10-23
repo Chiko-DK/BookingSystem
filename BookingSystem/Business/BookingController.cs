@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,10 +45,11 @@ namespace BookingSystem.Business
         #endregion
         
         #region Database Communication
-        public void DataMaintenance(Object obj)
+        public void DataMaintenance(Object obj, DB.DBOperation operation)
         {
+            int index = 0;
             //perform a given database operation to the dataset in memory; 
-            bookingDB.DataSetChange(obj);
+            bookingDB.DataSetChange(obj, DB.DBOperation.Add);
 
             if (obj is Guest)
             {
@@ -55,7 +57,19 @@ namespace BookingSystem.Business
             }
             else if (obj is Reservation)
             {
-                reservations.Add((Reservation)obj);
+                switch (operation)
+                {
+                    case DB.DBOperation.Add:
+                        reservations.Add((Reservation)obj);
+                        break;
+                    case DB.DBOperation.Edit:
+                        index = FindIndex((Reservation)obj);
+                        reservations[index] = (Reservation)obj;
+                        break;
+                    case DB.DBOperation.Delete:
+                        reservations.Remove((Reservation)obj);
+                        break;
+                }
             }
             else if (obj is Room)
             {
@@ -133,6 +147,20 @@ namespace BookingSystem.Business
                 return found ? rooms[index] : null;
             }
             else { return null; }
+        }
+
+        public int FindIndex(Reservation res)
+        {
+            int counter = 0;
+            bool found = false;
+            found = (res.ReferenceNumber == reservations[counter].ReferenceNumber);
+            while (!(found) && (counter < reservations.Count - 1))
+            {
+                counter++;
+                found = (res.ReferenceNumber == reservations[counter].ReferenceNumber);
+            }
+
+            return found ? counter : -1;
         }
 
         private bool IsRoomAvailable(Room room, DateTime checkin, DateTime checkout)

@@ -102,6 +102,8 @@ namespace BookingSystem.View
         private void CreateReservationForm()
         {
             reservationForm = new ReservationForm(bookCtrl);
+            reservationForm.StartPosition = FormStartPosition.Manual;
+            reservationForm.Location = new Point(600, 100);
             reservationForm.Show();
         }
         private void CreateNewGuestForm()

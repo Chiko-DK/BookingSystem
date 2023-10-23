@@ -89,10 +89,10 @@
             // resLabel
             // 
             this.resLabel.AutoSize = true;
-            this.resLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resLabel.Location = new System.Drawing.Point(27, 27);
+            this.resLabel.Font = new System.Drawing.Font("Elephant", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resLabel.Location = new System.Drawing.Point(22, 21);
             this.resLabel.Name = "resLabel";
-            this.resLabel.Size = new System.Drawing.Size(175, 20);
+            this.resLabel.Size = new System.Drawing.Size(301, 35);
             this.resLabel.TabIndex = 3;
             this.resLabel.Text = "Reservation Details";
             // 

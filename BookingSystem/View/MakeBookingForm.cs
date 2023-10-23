@@ -58,8 +58,10 @@ namespace BookingSystem.View
         {
             PopulateObject();
             roomListingForm = new RoomListingForm(bookCtrl);
-            roomListingForm.Show();
             roomListingForm.StartPosition = FormStartPosition.Manual;
+            roomListingForm.Location = new Point(600, 100);
+            roomListingForm.Show();
+
         }
         #endregion
 

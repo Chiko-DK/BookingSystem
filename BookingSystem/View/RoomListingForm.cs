@@ -92,6 +92,8 @@ namespace BookingSystem.View
         private void CreateGuestListForm ()
         {
             guestListForm = new GuestListForm(bookCtrl);
+            guestListForm.StartPosition = FormStartPosition.Manual;
+            guestListForm.Location = new Point(600, 100);
             guestListForm.Show();
         }
         #endregion

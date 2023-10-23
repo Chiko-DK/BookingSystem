@@ -139,11 +139,75 @@ namespace BookingSystem.Data
                 aRow["Status"] = res.Status;
             }
         }
+
+        //Find a row in the data set for reservation table
+        /*private int FindRow(Reservation res, string table)
+        {
+            int rowIndex = 0;
+            DataRow myRow;
+            int returnValue = -1;
+
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
+            {
+                myRow = myRow_loopVariable;
+                if (myRow.RowState != DataRowState.Deleted)
+                {
+                    if (res.ReferenceNumber == Convert.ToString(dsMain.Tables[table].Rows[rowIndex]["Reference Number"]))
+                    {
+                        returnValue = rowIndex;
+                    }
+                }
+                rowIndex++;
+            }
+            return returnValue;
+        }*/
+
+        /*private int FindRow(Reservation res, string table)
+        {
+            int rowIndex = 0;
+            DataRow myRow;
+            int returnValue = -1;
+
+            foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
+            {
+                myRow = myRow_loopVariable;
+                if (myRow.RowState != DataRowState.Deleted)
+                {
+                    string referenceNumber = Convert.ToString(myRow["Reference Number"]);
+                    if (res.ReferenceNumber == referenceNumber)
+                    {
+                        returnValue = rowIndex;
+                        break;  // Exit the loop once the match is found
+                    }
+                }
+                rowIndex++;
+            }
+            return returnValue;
+        }*/
+
+        private int FindRow(Reservation res, string tableName)
+        {
+            DataTable table = dsMain.Tables[tableName];
+            int rowIndex = 0; // Default value if not found
+
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                if (table.Rows[i]["Reference Number"].ToString() == res.ReferenceNumber)
+                {
+                    rowIndex = i;
+                    break; // Exit the loop once a match is found
+                }
+            }
+
+            return rowIndex;
+        }
+
+
         #endregion
 
         #region Database Operations CRUD
-        //Make change in the dataset in the respective table - add edit and delite(findrow)
-        public void DataSetChange(Object obj)
+        //Make change in the dataset for the respective table
+        public void DataSetChange(Object obj, DB.DBOperation operation)
         {
             DataRow aRow = null;
             string table = "";
@@ -160,9 +224,22 @@ namespace BookingSystem.Data
                 table = table3;
             }
 
-            aRow = dsMain.Tables[table].NewRow();
-            FillRow(aRow, obj);
-            dsMain.Tables[table].Rows.Add(aRow);
+            switch(operation)
+            {
+                case DBOperation.Add:
+                    aRow = dsMain.Tables[table].NewRow();
+                    FillRow(aRow, obj);
+                    dsMain.Tables[table].Rows.Add(aRow);
+                    break;
+                case DBOperation.Edit:
+                    aRow = dsMain.Tables[table].Rows[FindRow((Reservation)obj, table)];
+                    FillRow(aRow, obj);
+                    break;
+                case DB.DBOperation.Delete:
+                    int index = FindRow((Reservation)obj, table);
+                    dsMain.Tables[table].Rows[index].Delete();
+                    break;
+            }
         }
 
         //Build the insert parameters

@@ -19,6 +19,13 @@ namespace BookingSystem.View
         private Collection<Reservation> reservations;
         private Reservation res;
         public bool bookingListFormClosed = false;
+        private FormState formState;
+        public enum FormState
+        {
+            View,
+            Edit,
+            Delete
+        }
         #endregion
 
         #region Constructors
@@ -26,12 +33,16 @@ namespace BookingSystem.View
         {
             InitializeComponent();
             bookCtrl = new BookingController();
+            formState = FormState.View;
         }
 
         public BookingListForm(BookingController bookCtrl)
         {
             InitializeComponent();
             this.bookCtrl = bookCtrl;
+            checkinDTP.MinDate = DateTime.Today;
+            checkoutDTP.MinDate = DateTime.Today.AddDays(1);
+            formState = FormState.View;
         }
         #endregion
 
@@ -83,7 +94,6 @@ namespace BookingSystem.View
             }
             bookingLV.Refresh();
             bookingLV.GridLines = true;
-
 
         }
         #endregion
@@ -156,6 +166,50 @@ namespace BookingSystem.View
             checkoutDTP.Text = res.CheckOut.Date.ToString();
             statusTB.Text = res.Status.ToString();
         }
+
+        private void PopulateEditObject()
+        {
+            res = new Reservation();
+            res.ReferenceNumber = refTB.Text;
+            res.Status = statusTB.Text;
+
+            res.BGuest.GuestID = idTB.Text;
+            res.BGuest = (Guest)bookCtrl.Find(bookCtrl.getGuest, res.BGuest.GuestID);
+            if (res.BGuest == null )
+            {
+                MessageBox.Show("Guest ID was not found in the system");
+            }
+
+            res.BRoom.setRoomType(roomTypeCB.Text);
+            bookCtrl.getReservation.CheckIn = checkinDTP.Value;
+            bookCtrl.getReservation.CheckOut = checkoutDTP.Value;
+            Collection<Room> rooms;
+            rooms = bookCtrl.FindByTypeAvailability(bookCtrl.AllRooms, res.BRoom.getRoomType);
+            if (rooms.Count != 0)
+            {
+                res.BRoom = rooms[0];
+                res.CheckIn = checkinDTP.Value;
+                res.CheckOut = checkoutDTP.Value;
+                TimeSpan difference = res.CheckOut - res.CheckIn;
+                int numOfDays = difference.Days;
+                res.TotalPrice = res.BRoom.Price * numOfDays;
+            }
+            else
+            {
+                MessageBox.Show("There is no available rooms for that period");
+                res.BRoom = null;
+            }
+
+            if (res.BGuest != null && res.BRoom != null)
+            {
+                PopulateTextBoxes(res);
+            }
+            else
+            {
+                ShowAll(false);
+            }
+        }
+
         #endregion
 
         #region Form Events
@@ -191,8 +245,11 @@ namespace BookingSystem.View
 
         private void editBtn_Click(object sender, EventArgs e)
         {
+            formState = FormState.Edit;
             EnableEntries(true);
             confirmBtn.Visible = true;
+            checkinDTP.Value = DateTime.Today;
+            checkoutDTP.Value = DateTime.Today.AddDays(1);
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
@@ -203,7 +260,24 @@ namespace BookingSystem.View
 
         private void confirmBtn_Click(object sender, EventArgs e)
         {
-            this.Close(); //didn't finish :(
+            if(formState == FormState.Edit)
+            {
+                PopulateEditObject();
+
+                string title = "Confirmation";
+                string message = "Do you want to make changes the current booking\nPress 'Yes' to confirm.";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons);
+
+                if(result == DialogResult.Yes)
+                {
+                    bookCtrl.DataMaintenance(res, Data.DB.DBOperation.Edit);
+                    bookCtrl.FinalizeChanges(res);
+                    SetupBookingListView(string.Empty);
+                    ShowAll(false);
+                }
+            }
+
         }
 
         private void BookingListForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -211,5 +285,38 @@ namespace BookingSystem.View
             bookingListFormClosed = true;
         }
         #endregion
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            formState = FormState.Delete;
+            string title = "Confirmation";
+            string message = "The current reservation is about to be deleted\nPress 'OK' to confirm.";
+            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+
+            if (result == DialogResult.OK)
+            {
+                bookCtrl.DataMaintenance(res, Data.DB.DBOperation.Delete);
+                bookCtrl.FinalizeChanges(res);
+                SetupBookingListView(string.Empty);
+                ShowAll(false);
+            }
+        }
+
+        private void checkinDTP_ValueChanged(object sender, EventArgs e)
+        {
+            if (checkinDTP.Value >= checkoutDTP.Value)
+            {
+                checkoutDTP.Value = checkinDTP.Value.AddDays(1);
+            }
+        }
+
+        private void checkoutDTP_ValueChanged(object sender, EventArgs e)
+        {
+            if (checkoutDTP.Value <= checkinDTP.Value)
+            {
+                checkoutDTP.Value = checkinDTP.Value.AddDays(1);
+            }
+        }
     }
 }

@@ -258,6 +258,7 @@
             this.deleteBtn.TabIndex = 43;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // confirmBtn
             // 
@@ -301,6 +302,7 @@
             this.checkinDTP.Name = "checkinDTP";
             this.checkinDTP.Size = new System.Drawing.Size(255, 22);
             this.checkinDTP.TabIndex = 47;
+            this.checkinDTP.ValueChanged += new System.EventHandler(this.checkinDTP_ValueChanged);
             // 
             // checkoutDTP
             // 
@@ -308,6 +310,7 @@
             this.checkoutDTP.Name = "checkoutDTP";
             this.checkoutDTP.Size = new System.Drawing.Size(255, 22);
             this.checkoutDTP.TabIndex = 48;
+            this.checkoutDTP.ValueChanged += new System.EventHandler(this.checkoutDTP_ValueChanged);
             // 
             // BookingListForm
             // 

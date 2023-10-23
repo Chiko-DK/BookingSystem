@@ -42,7 +42,7 @@ namespace BookingSystem.View
             start = startDTP.Value;
             end = endDTP.Value;
             TimeSpan diff = end - start;
-            int days = diff.Days;
+            int days = diff.Days + 1;
 
             rooms = bookCtrl.AllRooms;
             //Room Number
